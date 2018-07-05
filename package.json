@@ -1,0 +1,9 @@
+{
+  "name": "refactor-jsx-helper",
+  "version": "0.0.1",
+  "description": "Helper functions for a refactor jsx ide extension",
+  "main": "index.js",
+  "repository": "https://github.com/chiptus/refactor-jsx-helper",
+  "author": "Chaim Lev-Ari",
+  "license": "MIT"
+}
