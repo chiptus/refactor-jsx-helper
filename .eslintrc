@@ -1,0 +1,21 @@
+{
+  "extends": ["eslint:recommended"],
+  "env": {
+    "browser": false,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "overrides": [
+    {
+      "files": "src/replace.test.js",
+      "plugins": ["jest"]
+    }
+  ]
+}
