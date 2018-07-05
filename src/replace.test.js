@@ -32,7 +32,7 @@ describe('tests simple component', () => {
     const name = 'test';
     const expected = {
       replacement: `<Test />`,
-      component: `() => <div>Hello</div>;`,
+      component: `const Test = () => <div>Hello</div>;`,
     };
     const returns = replace(name, code);
     expect(returns.replacement).toBe(expected.replacement);
@@ -44,7 +44,7 @@ describe('test component with a single function attribute', () => {
   test('test', () => {
     const expected = {
       replacement: '<Test t={() => t} />',
-      component: '({t}) => <div t={t} />;',
+      component: 'const Test = ({t}) => <div t={t} />;',
     };
     const returns = replace(`test`, '<div t={() => t} />');
     expect(returns.replacement).toBe(expected.replacement);

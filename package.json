@@ -1,5 +1,5 @@
 {
-  "name": "refactor-jsx-helper",
+  "name": "refactor-jsx-helpers",
   "version": "0.0.1",
   "description": "Helper functions for a refactor jsx ide extension",
   "main": "index.js",

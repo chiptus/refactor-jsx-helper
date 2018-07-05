@@ -2,6 +2,7 @@ module.exports = { replace };
 const generator = require('@babel/generator').default;
 
 const { parse, getPropDict } = require('./parse-helpers');
+
 function replace(name, code) {
   if (typeof name != 'string') {
     return { error: 'name is required' };
@@ -22,13 +23,14 @@ function replace(name, code) {
   }
   const props = getPropDict(tree);
   const propNames = Object.keys(props);
+  const pascalName = `${name[0].toUpperCase()}${name.substring(1)}`;
   let replacement = `
-    <${name[0].toUpperCase()}${name.substring(1)}
+    <${pascalName}
      ${propNames.map(p => `${p}=${props[p]}`).join(' ')}  />`
     .replace(/\s+/g, ' ')
     .trim();
-  let component = `(${propNames.length
-    ? `{${propNames.join(',')}}`
-    : ''}) => ${generator(tree).code}`;
+  let component = `const ${pascalName} = (${
+    propNames.length ? `{${propNames.join(',')}}` : ''
+  }) => ${generator(tree).code}`;
   return { replacement, component };
 }
